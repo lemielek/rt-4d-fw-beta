@@ -28,7 +28,20 @@ If you fit in any of the above points, stick to Official Radtel firmware as this
 
 You find more friendly documentation at [wiki](https://github.com/jcalado/rt-4d-fw-beta/wiki) by [Joel](https://github.com/jcalado). Be aware that the documentation can sometimes lag behind the releases.
 
-- From beta 38 onwards, the minimum DMR firmware suported will be 1.2.0.16. Any bug reports with b38+ that use older versions will be ignored.
+- From beta 38 onwards, the minimum DMR firmware supported is 1.2.0.16.
+- From beta 41 onwards, the minimum DMR firmware supported will be 1.2.0.24.
+
+- Beta 41 and beyond
+  - Official 3.19 broke CPS compatibility entirely and in very anti counter productive ways. 3.19 CPS will not be supported and from Beta 41 onwards, only [Joel's RT-4D CPS](https://github.com/jcalado/rt4d-cps) will be supported. I have better things to do than change the entire firmware to accomodate random big CPS changes, most of which didn't need to happen.
+
+- Beta 40
+  - Fixed a bug with receiving group SMS.
+  - As a result, RX group list now only support 32 IDs.
+    - If you have more than 32 IDs in a group, only up to 32 will be used. The rest will be ignored.
+    - If you need more than 32 IDs per group, you're probably doing it wrong anyway.
+    - "But Dual! My OGD77 radio supports more than 32 IDs!". Great, then go use your OGD77 radio. This is not OGD77 firmware.
+  - Fixed the scanner being interrupted by pressing a key when the key lock was in effect.
+  - Fixed a bug where the TX LED could stay on after a very short transmission.
 
 - Beta 39
   - Added DMR group name resolution in "Extra" menu.
@@ -58,7 +71,6 @@ You find more friendly documentation at [wiki](https://github.com/jcalado/rt-4d-
     - The LED will turn off when PTT is released or if connection to the repeater failed.
 
 - WIP
-  - Why wait for CPS to catch up. <a href="wip.png">Very very WIP.</a>
   - DCS codes are now correctly displayed in the capture list.
   - Spectrum no longer renders or processes frequencies beyond the "To:" limit in Scan Range.
     - Fixed display bug introduced by this feature when not in scan range mode.
